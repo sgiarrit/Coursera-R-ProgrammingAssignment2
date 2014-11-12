@@ -3,8 +3,27 @@
 
 ## Write a short comment describing this function
 
+# This makeVector creates a special "vector", which is really a 
+# list containing a function to:
+#   -- set the value of the matrix
+#   -- get the value of the matrix
+#   -- set the value of the inverse
+#   -- get the value of the mean
 makeCacheMatrix <- function(x = matrix()) {
-
+        m <- NULL
+    
+        set <- function(y) {
+                x <<- y
+                m <<- NULL
+        }
+  
+        get <- function() x
+                setinverse <- function(inverse) m <<- inverse
+                getinverse <- function() m
+  
+        list(set = set, get = get,
+                setinverse = setinverse,
+                getinverse = getinverse)
 }
 
 
